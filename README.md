@@ -15,7 +15,7 @@ To run the project, you need to have Python installed on your computer.
 
 1. Clone the repository:
 ``` 
-git clone git@github.com:zahra-zibzee/Flood-Fill-Paint.git
+git clone https://github.com/zahra-zibzee/Flood-Fill-Paint.git
 cd Flood-Fill-Paint
 ``` 
 
