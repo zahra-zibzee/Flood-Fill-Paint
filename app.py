@@ -3,24 +3,33 @@ from tkinter import ttk
 from tkinter import colorchooser
 
 class PaintAndColor:
+    '''
+        The class creates a canvas with a grid of cells that can be colored by the user.
+        The user can choose a color and paint the cells by clicking on them or dragging the mouse.
+        The user can also fill an area with a color by choosing a color from fill button and clicking on the area.
+    '''
+
     def __init__(self, root):
         self.root = root
         self.root.title("Draw and Color")
 
+        # canvas size 
         self.width = 800
         self.height = 600
 
         self.canvas = tk.Canvas(root, width=self.width, height=self.height, bg="white")
         self.canvas.pack()
 
+        
         self.grid_size = 20     # 20x20 grid
         self.cell_size = 20
-        self.grid = []
+        self.grid = []      # storing grid cells       
 
+        # starting position of the grid
         self.x_start = self.width // 2 - (self.cell_size * self.grid_size) // 2
         self.y_start = self.height // 2 - (self.cell_size * self.grid_size) // 2 - 50
 
-        for row in range(self.grid_size):
+        for row in range(self.grid_size):       # creating grid cells
             row_cells = []
             for col in range(self.grid_size):
                 x1 = self.x_start + col * self.cell_size
@@ -47,12 +56,18 @@ class PaintAndColor:
         self.flood_fill_mode = False
 
     def paint_color(self):
+        '''
+            Function to choose a color from the color picker dialog
+        '''
         self.flood_fill_mode = False
         color_code = colorchooser.askcolor(title="Choose color")
         if color_code:
             self.selected_color = color_code[1]
     
     def change_color(self, event):
+        '''
+            Function to change the color of the cell clicked by the user
+        '''
         col = (event.x - self.x_start) // self.cell_size
         row = (event.y - self.y_start) // self.cell_size
 
@@ -65,18 +80,28 @@ class PaintAndColor:
                 self.canvas.itemconfig(cell, fill=self.selected_color)
 
     def activate_flood_fill(self):
+        '''
+            Function to activate the flood fill mode when the user clicks on the button to choose its color
+        '''
         color_code = colorchooser.askcolor(title="Choose color")
         if color_code:
             self.selected_color = color_code[1]
             self.flood_fill_mode = True
 
     def flood_fill(self, row, col):
+        '''
+            Function to fill the area with the selected color using the flood fill algorithm
+        '''
         target_color = self.canvas.itemcget(self.grid[row][col], "fill")
         if target_color == self.selected_color:
             return
-        self.flood_fill_dfs(row, col, target_color)
+        self.flood_fill_dfs(row, col, target_color)     # calling the depth-first search function
 
     def flood_fill_dfs(self, row, col, target_color):
+        '''
+            Depth-first search algorithm to fill the area with the selected color
+        '''
+
         if row < 0 or row >= self.grid_size or col < 0 or col >= self.grid_size:
             return
         cell = self.grid[row][col]
