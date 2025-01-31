@@ -14,36 +14,36 @@ The user can select a color to paint, and click or drag the mouse on the canvas 
 To run the project, you need to have Python installed on your computer. 
 
 1. Clone the repository:
-``` 
+```bash
 git clone git@github.com:zahra-zibzee/Flood-Fill-Paint.git
 cd Flood-Fill-Paint
 ``` 
 
 2. Create a virtual environment and install the required packages:
-``` 
+```bash
 python3 -m venv venv
 ```
 - For Windows:
-    ``` 
+    ```bash
     venv\Scripts\activate
     ```
 - For Linux/Mac:
-    ```
+    ```bash
     source venv/bin/activate 
     ```
-```
+```bash
 pip install -r requirements.txt
 ```
 
 3. Run the project:
-```
+```bash
 python app.py
 ```
 
 ### Running tests
 
 To run the tests:
-```
+```bash
 python -m unittest test_app.py 
 ```
 
