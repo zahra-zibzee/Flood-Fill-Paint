@@ -44,7 +44,7 @@ python app.py
 
 To run the tests:
 ```
-python -m unittest test_app.py 
+pytest test_app.py 
 ```
 
 ## Project Visual Demo
