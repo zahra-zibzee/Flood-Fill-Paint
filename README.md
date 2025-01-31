@@ -9,6 +9,8 @@ The user can select a color to paint, and click or drag the mouse on the canvas 
 
 
 ## How to run
+
+### Running the project
 To run the project, you need to have Python installed on your computer. 
 
 1. Clone the repository:
@@ -37,6 +39,17 @@ pip install -r requirements.txt
 ```
 python app.py
 ```
+
+### Running tests
+
+To run the tests:
+```
+python -m unittest test_app.py 
+```
+
+## Project Visual Demo
+
+
 
 
 
