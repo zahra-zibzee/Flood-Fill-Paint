@@ -49,7 +49,7 @@ python -m unittest test_app.py
 
 ## Project Visual Demo
 
-
+![Flood Fill Paint](https://github.com/zahra-zibzee/Flood-Fill-Paint/blob/main/paint.gif)
 
 
 
